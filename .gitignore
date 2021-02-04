@@ -132,7 +132,3 @@ dmypy.json
 LEDino.cfg
 Notas.rtf
 Pruebas
-.vscode
-
-# Particular de Mac:
-.DS_Store
