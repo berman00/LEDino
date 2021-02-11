@@ -2,8 +2,8 @@ from setuptools import setup
 
 setup(
     name='LEDino',
-    version='0.1',
-    py_modules=['LEDino'],
+    version='1.0',
+    py_modules=['LEDino','LEDino-gui', 'LEDino-cli'],
     install_requires=[
         'Click',
     ],

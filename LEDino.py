@@ -1,12 +1,10 @@
 '''
-Programa de linea de comandos para interactuar con un microconrolador
+Programa para interactuar con un microconrolador
 en una red local, para controlar un LED.
 
-Valentin Berman 6/1/21
+Valentin Berman 11/2/21
 '''
 
-
-import click
 import socket
 
 
@@ -53,18 +51,10 @@ def enviarMensaje(mensaje):
 
 
 
-# Comando principal
-
-@click.group()
-def ledino():
-    pass
 
 
-# Subcomandos:
+# Comandos:
 
-@ledino.command()
-@click.option('--ip', default = None)
-@click.option('--puerto', default = None)
 def config(ip, puerto):
     '''
     Crea o modifica el archivo de configuración
@@ -94,8 +84,6 @@ def config(ip, puerto):
 
 
 
-@ledino.command()
-@click.argument('color')
 def color(color):
     '''
     Cambia el color del LED
@@ -129,8 +117,6 @@ def color(color):
     enviarMensaje(mensaje)
 
 
-@ledino.command()
-@click.argument('estado', default="camb",  type=click.Choice(["ence", "apag", "camb"], case_sensitive=False))
 def parpadear(estado):
     '''
     Determina si el LED parpadea
