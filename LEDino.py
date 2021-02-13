@@ -49,6 +49,26 @@ def enviarMensaje(mensaje):
     with socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM) as UDP_socket:
         UDP_socket.sendto(mensaje.encode(), (ip, puerto))
 
+def crearColorCustom(rojo, verde, azul):
+    '''
+    Crea un string para enviar al arduino y que seleccione cualquier color
+    '''
+
+    return "%d:%d:%d" % (rojo, verde, azul)
+
+def colores2hexa(rojo, verde, azul):
+    '''
+    Crea un string en el formato hexadecimal a partir de 3 enteros de colores
+    '''
+
+    hexRojo = hex(rojo).replace('0x','')
+    if len(hexRojo) < 2: hexRojo = '0'+hexRojo    
+    hexVerde = hex(verde).replace('0x','')
+    if len(hexVerde) < 2: hexVerde = '0'+hexVerde
+    hexAzul = hex(azul).replace('0x','')
+    if len(hexAzul) < 2: hexAzul = '0'+hexAzul
+    return "#%s%s%s" % (hexRojo, hexVerde, hexAzul)
+
 
 
 

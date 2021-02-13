@@ -42,3 +42,10 @@ def parpadear(estado):
     Determina si el LED parpadea
     '''
     LEDino.parpadear(estado)
+
+@ledino.command()
+def gui():
+    '''
+    Activa el modo gui
+    '''
+    import LEDino_gui
