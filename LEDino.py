@@ -30,19 +30,19 @@ def crearConfig():
     ipDoc = input("ip: ")
     puertoDoc = input("puerto: ")
 
-    with open("/Users/valen/Codigo/LEDino/LEDino.cfg", 'w') as config:
+    with open("/Users/valen/Code/LEDino/LEDino.cfg", 'w') as config:
         config.write(ipDoc + '\n' + puertoDoc)
 
 
 def enviarMensaje(mensaje):
 
     try:
-        with open("/Users/valen/Codigo/LEDino/LEDino.cfg", 'r') as config:
+        with open("/Users/valen/Code/LEDino/LEDino.cfg", 'r') as config:
             ip = config.readline().replace('\n', '')
             puerto = int(config.readline())
     except FileNotFoundError:
         crearConfig()
-        with open("/Users/valen/Codigo/LEDino/LEDino.cfg", 'r') as config:
+        with open("/Users/valen/Code/LEDino/LEDino.cfg", 'r') as config:
             ip = config.readline().replace('\n', '')
             puerto = int(config.readline())
     
@@ -81,7 +81,7 @@ def config(ip, puerto):
     '''
     
     try:    # Caso 1: ya existe el archivo LEDino.cfg
-        with open("/Users/valen/Codigo/LEDino/LEDino.cfg", 'r') as config:
+        with open("/Users/valen/Code/LEDino/LEDino.cfg", 'r') as config:
 
             ipDoc = config.readline()
             puertoDoc = config.readline()
@@ -96,7 +96,7 @@ def config(ip, puerto):
                     puertoDoc = puerto
         
         if ip or puerto:
-            with open("/Users/valen/Codigo/LEDino/LEDino.cfg", 'w') as config:
+            with open("/Users/valen/Code/LEDino/LEDino.cfg", 'w') as config:
                 config.write(ipDoc + puertoDoc)
 
     except FileNotFoundError:   # Caso 2: no existe el archivo, entonces lo creamos
